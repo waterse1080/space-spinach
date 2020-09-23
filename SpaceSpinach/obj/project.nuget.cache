@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "V/LhXSrfblAQyYAIN3nb1avPGeGhN1ka0kNaIU7lzhprbF9IzYcNEcYyXcONwVvT/4u/eFeVKPuWIMIovNp6gQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yoshi\\source\\repos\\SpaceSpinach\\SpaceSpinach\\SpaceSpinach.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yoshi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\yoshi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
