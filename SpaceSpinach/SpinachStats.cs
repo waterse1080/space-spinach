@@ -6,12 +6,17 @@ using UnityEngine;
 namespace SpaceSpinach {
     public class SpinachStats : MonoBehaviour {
         public Vector3 defaultBaseScale;
+        public Vector3 defaultCameraPos;
         public float defaultBaseHealth;
         public float defaultBaseDamage;
         public float defualtBaseSpeed;
 
         public void setBaseScale(Vector3 newScale) {
             defaultBaseScale = newScale;
+        }
+
+        public void setCameraPos(Vector3 newPos) {
+            defaultCameraPos = newPos;
         }
 
         public void setBaseHealth(float newHealth) {

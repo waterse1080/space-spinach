@@ -17,10 +17,6 @@
           "BepInEx.Harmony": "2.0.0.0",
           "BepInEx.MonoMod.Loader": "1.0.0.0",
           "BepInEx.Preloader": "5.0.1.0",
-          "ChronobaubleFix": "1.0.0.0",
-          "DebugToolkit": "3.3.0.0",
-          "EmptyChestsBeGone": "1.0.0.0",
-          "MiniRpcLib": "1.0.0.0",
           "MMHOOK_Assembly-CSharp": "0.0.0.0",
           "Mono.Cecil": "0.10.4.0",
           "Mono.Cecil.Mdb": "0.10.4.0",
@@ -29,19 +25,11 @@
           "MonoMod": "20.3.5.1",
           "MonoMod.RuntimeDetour": "20.3.5.1",
           "MonoMod.Utils": "20.3.5.1",
-          "OrderedItems": "1.0.0.0",
-          "Pingprovements": "1.0.0.0",
           "R2API": "2.0.0.0",
-          "RiskOfRain2ModTesting": "1.0.0.0",
-          "ScannerPlusOne": "1.0.0.0",
-          "SillyItems": "1.0.0.0",
-          "TeleShow": "1.0.0.0",
-          "TooManyFriends": "1.0.0.0",
           "UnityEngine.AssetBundleModule": "0.0.0.0",
           "UnityEngine.CoreModule": "0.0.0.0",
           "UnityEngine": "0.0.0.0",
-          "UnityEngine.Networking": "1.0.0.0",
-          "WaxQuailMultiJump": "1.0.0.0"
+          "UnityEngine.Networking": "1.0.0.0"
         },
         "runtime": {
           "SpaceSpinach.dll": {}
@@ -109,38 +97,6 @@
           }
         }
       },
-      "ChronobaubleFix/1.0.0.0": {
-        "runtime": {
-          "ChronobaubleFix.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "DebugToolkit/3.3.0.0": {
-        "runtime": {
-          "DebugToolkit.dll": {
-            "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.0.0"
-          }
-        }
-      },
-      "EmptyChestsBeGone/1.0.0.0": {
-        "runtime": {
-          "EmptyChestsBeGone.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "MiniRpcLib/1.0.0.0": {
-        "runtime": {
-          "MiniRpcLib.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "MMHOOK_Assembly-CSharp/0.0.0.0": {
         "runtime": {
           "MMHOOK_Assembly-CSharp.dll": {
@@ -205,67 +161,11 @@
           }
         }
       },
-      "OrderedItems/1.0.0.0": {
-        "runtime": {
-          "OrderedItems.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "Pingprovements/1.0.0.0": {
-        "runtime": {
-          "Pingprovements.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "R2API/2.0.0.0": {
         "runtime": {
           "R2API.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.0.0.0"
-          }
-        }
-      },
-      "RiskOfRain2ModTesting/1.0.0.0": {
-        "runtime": {
-          "RiskOfRain2ModTesting.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "ScannerPlusOne/1.0.0.0": {
-        "runtime": {
-          "ScannerPlusOne.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "SillyItems/1.0.0.0": {
-        "runtime": {
-          "SillyItems.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "TeleShow/1.0.0.0": {
-        "runtime": {
-          "TeleShow.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "TooManyFriends/1.0.0.0": {
-        "runtime": {
-          "TooManyFriends.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -301,14 +201,6 @@
           }
         }
       },
-      "WaxQuailMultiJump/1.0.0.0": {
-        "runtime": {
-          "WaxQuailMultiJump.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "UnityEngine.ParticleSystemModule/0.0.0.0": {
         "runtime": {
           "UnityEngine.ParticleSystemModule.dll": {
@@ -317,9 +209,9 @@
           }
         }
       },
-      "UnityEngine.PhysicsModule/0.0.0.0": {
+      "UnityEngine.AnimationModule/0.0.0.0": {
         "runtime": {
-          "UnityEngine.PhysicsModule.dll": {
+          "UnityEngine.AnimationModule.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
           }
@@ -341,9 +233,9 @@
           }
         }
       },
-      "UnityEngine.AnimationModule/0.0.0.0": {
+      "UnityEngine.PhysicsModule/0.0.0.0": {
         "runtime": {
-          "UnityEngine.AnimationModule.dll": {
+          "UnityEngine.PhysicsModule.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
           }
@@ -365,6 +257,14 @@
           }
         }
       },
+      "UnityEngine.DirectorModule/0.0.0.0": {
+        "runtime": {
+          "UnityEngine.DirectorModule.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "Wwise/0.0.0.0": {
         "runtime": {
           "Wwise.dll": {
@@ -378,6 +278,14 @@
           "Unity.TextMeshPro.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Facepunch.Steamworks/1.2.0.0": {
+        "runtime": {
+          "Facepunch.Steamworks.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           }
         }
       },
@@ -397,19 +305,19 @@
           }
         }
       },
-      "Facepunch.Steamworks/0.0.0.0": {
-        "runtime": {
-          "Facepunch.Steamworks.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
       "Zio/0.7.3.0": {
         "runtime": {
           "Zio.dll": {
             "assemblyVersion": "0.7.3.0",
             "fileVersion": "0.7.3.0"
+          }
+        }
+      },
+      "HGCSharpUtils/0.0.0.0": {
+        "runtime": {
+          "HGCSharpUtils.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -456,6 +364,14 @@
       "UnityEngine.IMGUIModule/0.0.0.0": {
         "runtime": {
           "UnityEngine.IMGUIModule.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "HGUnityUtils/0.0.0.0": {
+        "runtime": {
+          "HGUnityUtils.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
           }
@@ -653,14 +569,6 @@
           }
         }
       },
-      "UnityEngine.DirectorModule/0.0.0.0": {
-        "runtime": {
-          "UnityEngine.DirectorModule.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
       "UnityEngine.GameCenterModule/0.0.0.0": {
         "runtime": {
           "UnityEngine.GameCenterModule.dll": {
@@ -822,26 +730,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "ChronobaubleFix/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "DebugToolkit/3.3.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "EmptyChestsBeGone/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "MiniRpcLib/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "MMHOOK_Assembly-CSharp/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -882,42 +770,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "OrderedItems/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Pingprovements/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "R2API/2.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "RiskOfRain2ModTesting/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "ScannerPlusOne/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SillyItems/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "TeleShow/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "TooManyFriends/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -942,17 +795,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "WaxQuailMultiJump/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "UnityEngine.ParticleSystemModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "UnityEngine.PhysicsModule/0.0.0.0": {
+    "UnityEngine.AnimationModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -967,7 +815,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "UnityEngine.AnimationModule/0.0.0.0": {
+    "UnityEngine.PhysicsModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -982,12 +830,22 @@
       "serviceable": false,
       "sha512": ""
     },
+    "UnityEngine.DirectorModule/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Wwise/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "Unity.TextMeshPro/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Facepunch.Steamworks/1.2.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -1002,12 +860,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Facepunch.Steamworks/0.0.0.0": {
+    "Zio/0.7.3.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Zio/0.7.3.0": {
+    "HGCSharpUtils/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -1038,6 +896,11 @@
       "sha512": ""
     },
     "UnityEngine.IMGUIModule/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HGUnityUtils/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -1158,11 +1021,6 @@
       "sha512": ""
     },
     "UnityEngine.TerrainPhysicsModule/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "UnityEngine.DirectorModule/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

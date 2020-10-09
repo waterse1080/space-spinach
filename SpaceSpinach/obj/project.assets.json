@@ -186,11 +186,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yoshi\\source\\repos\\SpaceSpinach\\SpaceSpinach\\SpaceSpinach.csproj",
+      "projectUniqueName": "C:\\Users\\yoshi\\Documents\\GitHub\\space-spinach\\SpaceSpinach\\SpaceSpinach.csproj",
       "projectName": "SpaceSpinach",
-      "projectPath": "C:\\Users\\yoshi\\source\\repos\\SpaceSpinach\\SpaceSpinach\\SpaceSpinach.csproj",
+      "projectPath": "C:\\Users\\yoshi\\Documents\\GitHub\\space-spinach\\SpaceSpinach\\SpaceSpinach.csproj",
       "packagesPath": "C:\\Users\\yoshi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yoshi\\source\\repos\\SpaceSpinach\\SpaceSpinach\\obj\\",
+      "outputPath": "C:\\Users\\yoshi\\Documents\\GitHub\\space-spinach\\SpaceSpinach\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
