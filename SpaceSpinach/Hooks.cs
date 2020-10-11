@@ -38,7 +38,7 @@ namespace SpaceSpinach {
                 // Update HP
                 self.baseMaxHealth = self.gameObject.GetComponent<SpinachStats>().defaultBaseHealth + 10 * spinachCount;
                 // Update Damage
-                self.baseDamage = self.gameObject.GetComponent<SpinachStats>().defaultBaseDamage + 2 * spinachCount;
+                self.baseDamage = self.gameObject.GetComponent<SpinachStats>().defaultBaseDamage + 5 * spinachCount;
                 // Update Speed
                 self.baseMoveSpeed = self.gameObject.GetComponent<SpinachStats>().defualtBaseSpeed + spinachCount;
 

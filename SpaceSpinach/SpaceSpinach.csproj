@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <None Remove="bonemeal" />
+    <None Remove="spacespinachbundle" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="bonemeal" />
+    <EmbeddedResource Include="spacespinachbundle" />
   </ItemGroup>
 
   <ItemGroup>
