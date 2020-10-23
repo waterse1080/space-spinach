@@ -20,14 +20,14 @@ namespace SpaceSpinach {
                 self.gameObject.GetComponent<SpinachStats>().setBaseHealth(self.baseMaxHealth);
                 self.gameObject.GetComponent<SpinachStats>().setBaseDamage(self.baseDamage);
                 self.gameObject.GetComponent<SpinachStats>().setBaseSpeed(self.baseMoveSpeed);
+                self.gameObject.GetComponent<SpinachStats>().setBaseJump(self.baseJumpPower);
 
                 // Test output
                 /** Chat.AddMessage("ObjectName: " + self.name);
                 Chat.AddMessage("Scale: " + self.gameObject.GetComponent<SpinachStats>().defaultBaseScale);
                 Chat.AddMessage("Health: " + self.gameObject.GetComponent<SpinachStats>().defaultBaseHealth);
                 Chat.AddMessage("Damage: " + self.gameObject.GetComponent<SpinachStats>().defaultBaseDamage);
-                Chat.AddMessage("Speed: " + self.gameObject.GetComponent<SpinachStats>().defualtBaseSpeed); **/
-                
+                Chat.AddMessage("Speed: " + self.gameObject.GetComponent<SpinachStats>().defualtBaseSpeed); **/                
             };
 
             // Recalculation of numerical stats
@@ -41,6 +41,8 @@ namespace SpaceSpinach {
                 self.baseDamage = self.gameObject.GetComponent<SpinachStats>().defaultBaseDamage + 5 * spinachCount;
                 // Update Speed
                 self.baseMoveSpeed = self.gameObject.GetComponent<SpinachStats>().defualtBaseSpeed + spinachCount;
+                // Update Jump Height
+                self.baseJumpPower = self.gameObject.GetComponent<SpinachStats>().defaultBaseJump + 2 * spinachCount;
 
                 // Call Recalculate stats
                 orig(self);
@@ -62,29 +64,8 @@ namespace SpaceSpinach {
                 Vector3 spinachPos = new Vector3(0.0f, spinachCount * 1.8f, -spinachCount * 1.8f);
                 self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos = basePos + spinachPos;
 
-                
-                // Call Start
-                orig(self);
-
-               
-            };
-
-            On.RoR2.CharacterModel.OnInventoryChanged += (orig, self) => {
-                // Call Start
-                orig(self);
-
-                // Get the ammount of the item currently on the Character Body
-                spinachCount = self.body.inventory.GetItemCount(Assets.SpaceSpinachItemIndex);
-                /// Chat.AddMessage(spinachCount + " spinach in the inventory.");
-
-                // TODO: Make player model semi-transparent to not hinder ranged survivors
-                if (spinachCount > 0) {
-                    //Color color = self.GetComponent<mainSkinnedMeshRenderer>().mesh.material.color;
-                    //color.a = 0.5f;
-                    //self.GetComponent<mainSkinnedMeshRenderer>().mesh.material.color = color;
-                } else {
-                    
-                }
+                // Call OnInventoryChanged
+                orig(self);  
             };
         }
     }

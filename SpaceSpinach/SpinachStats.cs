@@ -10,6 +10,7 @@ namespace SpaceSpinach {
         public float defaultBaseHealth;
         public float defaultBaseDamage;
         public float defualtBaseSpeed;
+        public float defaultBaseJump;
 
         public void setBaseScale(Vector3 newScale) {
             defaultBaseScale = newScale;
@@ -29,6 +30,10 @@ namespace SpaceSpinach {
 
         public void setBaseSpeed(float newSpeed) {
             defualtBaseSpeed = newSpeed;
+        }
+
+        public void setBaseJump(float newJump) {
+            defaultBaseJump = newJump;
         }
     }
 }
