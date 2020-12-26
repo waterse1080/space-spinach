@@ -1,0 +1,7 @@
+{
+    "name": "Space_Spinach",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/waterse1080/space-spinach",
+    "description": "Adds a new item that increases the player's size in addition to slightly increasing health, damage, speed, and jump height.",
+    "dependencies": ["bbepis-BepInExPack-5.3.1", "tristanmcpherson-R2API-2.5.14"]
+}

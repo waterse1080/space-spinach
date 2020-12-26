@@ -4,6 +4,7 @@ using RoR2;
 using UnityEngine;
 
 namespace SpaceSpinach {
+    // This is where the default game stats, size scale, and camera position are stored for each game object that has space spinach
     public class SpinachStats : MonoBehaviour {
         public Vector3 defaultBaseScale;
         public Vector3 defaultCameraPos;

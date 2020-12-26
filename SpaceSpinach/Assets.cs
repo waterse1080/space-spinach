@@ -42,7 +42,7 @@ namespace SpaceSpinach {
                 pickupIconPath = IconPath,
                 nameToken = "Space Spinach", // Stylised Name
                 pickupToken = "Grow in size. Gain small bonuses to health, damage, and speed!",
-                descriptionToken = "Grow in size. Gain small bonuses to health, damage, and speed!",
+                descriptionToken = "Grow in size. Gain small bonuses to health, damage, speed, and jump height!",
                 loreToken = "Said to be grown with a special bonemeal fertilizer, the exact nutritional contents remain a mystery as the back has been scratched off...",
                 tags = new[] {
                     ItemTag.Damage,
