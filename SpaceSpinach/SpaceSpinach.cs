@@ -8,7 +8,7 @@ namespace SpaceSpinach {
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(ItemDropAPI), nameof(ResourcesAPI))]
     [BepInPlugin(ModGuid, ModName, ModVer)]
     public class SpaceSpinach : BaseUnityPlugin {
-        private const string ModVer = "1.0.1";
+        private const string ModVer = "1.0.2";
         private const string ModName = "SpaceSpinach";
         public const string ModGuid = "com.WeeaboTrash.SpaceSpinach";
 

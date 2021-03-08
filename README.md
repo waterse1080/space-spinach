@@ -7,6 +7,8 @@ To install manually, drop the SpaceSpinach.dll file into your BepInEx plugins fo
 Commonly found here: C:\Program Files (x86)\Steam\steamapps\common\Risk of Rain 2\BepInEx\plugins
 
 ## Changelog:
+### - 1.0.2
+  - Artifact encounter soft-lock fixed
 ### - 1.0.1
   - Improved performance
   - Improved consistancy of tracking survivor stats between levels
@@ -14,7 +16,6 @@ Commonly found here: C:\Program Files (x86)\Steam\steamapps\common\Risk of Rain 
 ## Known Issues:
 Major:
  - Rex has issues with size scaling, making it so that he cannot interact with some objects.
- - Entering the artifact boss room soft locks the game as the boss dies after the cutscene but the shield remains.
  - Enemies getting the item in the void or with evolution sometimes effect the player camera position.
  - Quitting to menu/dying results in the camera position not reseting to normal for that character. For now this can be fixed by restarting the game.
 
