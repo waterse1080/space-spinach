@@ -7,7 +7,7 @@ namespace SpaceSpinach {
     internal static class Assets {
         // Item Statics
         internal static GameObject SpaceSpinachPrefab;
-        internal static ItemIndex SpaceSpinachItemIndex;
+        /// internal static ItemIndex SpaceSpinachItemIndex;
         // Item private paths and prefix
         private const string ModPrefix = "@SpaceSpinach:";
         /// private const string PrefabPath = ModPrefix + "Assets/Import/skull/skull.prefab";
@@ -23,23 +23,26 @@ namespace SpaceSpinach {
             /// using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("SpaceSpinach.bonemeal")) {
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("SpaceSpinach.spacespinachbundle")) {
                 var bundle = AssetBundle.LoadFromStream(stream);
-                var provider = new AssetBundleResourcesProvider(ModPrefix.TrimEnd(':'), bundle);
-                ResourcesAPI.AddProvider(provider);
+                /// var provider = new AssetBundleResourcesProvider(ModPrefix.TrimEnd(':'), bundle);
+                /// ResourcesAPI.AddProvider(provider);
 
                 SpaceSpinachPrefab = bundle.LoadAsset<GameObject>("Assets/Import/E-Can.prefab");
+                SpaceSpinachAsGreenTierItem(bundle);
             }
 
-            SpaceSpinachAsGreenTierItem();
-            
+            // SpaceSpinachAsGreenTierItem();
+
         }
 
-        private static void SpaceSpinachAsGreenTierItem() {
+        private static void SpaceSpinachAsGreenTierItem(AssetBundle bundle) {
             // Define the item when it is created as a green tier item
             var spaceSpinachItemDef = new ItemDef {
                 name = "SpaceSpinach", // Internal name, no spaces or special characters
                 tier = ItemTier.Tier2,
-                pickupModelPath = PrefabPath,
-                pickupIconPath = IconPath,
+                // pickupModelPath = PrefabPath,
+                // pickupIconPath = IconPath,
+                pickupIconSprite = bundle.LoadAsset<Sprite>("Assets/Import/CanIcon.png"),
+                pickupModelPrefab = bundle.LoadAsset<GameObject>("Assets/Import/E-Can.prefab"),
                 nameToken = "Space Spinach", // Stylised Name
                 pickupToken = "Grow in size. Gain small bonuses to health, damage, and speed!",
                 descriptionToken = "Grow in size. Gain small bonuses to health, damage, speed, and jump height!",
@@ -57,9 +60,9 @@ namespace SpaceSpinach {
             itemDisplayRules[0].localAngles = new Vector3(0f, 90f, 0f); // rotate the model, was 0, 180, 0 for bone
             itemDisplayRules[0].localPos = new Vector3(-0.25f, -0.1f, 0f); // position offset relative to the childName, here the survivor Chest, was -0.35, -0.1, 0 for bone
 
-            var spaceSpinach = new R2API.CustomItem(spaceSpinachItemDef, itemDisplayRules);
+            var spaceSpinach = new CustomItem(spaceSpinachItemDef, itemDisplayRules);
 
-            SpaceSpinachItemIndex = ItemAPI.Add(spaceSpinach); // ItemAPI sends back the ItemIndex of your item
+            ItemAPI.Add(spaceSpinach); // Add space spinach to the items, find index using ItemCatalog.FindItemIndex("SpaceSpinach");
         }
     }
 }

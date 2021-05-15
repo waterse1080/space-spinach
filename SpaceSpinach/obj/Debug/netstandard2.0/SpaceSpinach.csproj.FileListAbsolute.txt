@@ -111,7 +111,6 @@ C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\Mono.Cecil.Mdb.dll
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\Mono.Cecil.Pdb.dll
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\Mono.Cecil.Rocks.dll
-C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\MonoMod.exe
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\MonoMod.RuntimeDetour.dll
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\MonoMod.Utils.dll
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\R2API.dll
@@ -183,7 +182,6 @@ C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\BepInEx.Harmony.xml
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\BepInEx.MonoMod.Loader.pdb
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\BepInEx.Preloader.xml
-C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\MonoMod.xml
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\MonoMod.RuntimeDetour.xml
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\MonoMod.Utils.xml
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\R2API.xml
@@ -194,3 +192,11 @@ C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\obj\Debug\netstandard
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\obj\Debug\netstandard2.0\SpaceSpinach.csproj.CopyComplete
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\obj\Debug\netstandard2.0\SpaceSpinach.dll
 C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\obj\Debug\netstandard2.0\SpaceSpinach.pdb
+C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\ModLoader.dll
+C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\SimpleJSON.dll
+C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\0Harmony20.dll
+C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\HarmonyXInterop.dll
+C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\Mono.Cecil.pdb
+C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\Mono.Cecil.Mdb.pdb
+C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\Mono.Cecil.Pdb.pdb
+C:\Users\yoshi\Documents\GitHub\space-spinach\SpaceSpinach\bin\Debug\netstandard2.0\Mono.Cecil.Rocks.pdb
