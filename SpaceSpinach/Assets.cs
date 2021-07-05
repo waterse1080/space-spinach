@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using BepInEx.Logging;
 using R2API;
 using RoR2;
 using UnityEngine;
@@ -7,50 +8,45 @@ namespace SpaceSpinach {
     internal static class Assets {
         // Item Statics
         internal static GameObject SpaceSpinachPrefab;
-        /// internal static ItemIndex SpaceSpinachItemIndex;
-        // Item private paths and prefix
-        private const string ModPrefix = "@SpaceSpinach:";
-        /// private const string PrefabPath = ModPrefix + "Assets/Import/skull/skull.prefab";
-        /// private const string IconPath = ModPrefix + "Assets/Import/skull_icon/SkullIcon.png";
-        private const string PrefabPath = ModPrefix + "Assets/Import/E-Can.prefab";
-        private const string IconPath = ModPrefix + "Assets/Import/CanIcon.png";
+        internal static Sprite SpaceSpinachIcon;
 
-        internal static void Init() {
-            Chat.AddMessage("Loaded SpaceSpinach!");
-            // First registering your AssetBundle into the ResourcesAPI with a modPrefix that'll also be used for your prefab and icon paths
-            // note that the string parameter of this GetManifestResourceStream call will change depending on
-            // your namespace and file name
-            /// using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("SpaceSpinach.bonemeal")) {
+        internal static ItemDef SpaceSpinachItemDef;
+        internal static ManualLogSource Logger;
+
+        private const string ModPrefix = "@SpaceSpinach:";
+
+        internal static void Init(ManualLogSource Logger) {
+            // Chat.AddMessage("Loaded SpaceSpinach!");
+
+            Assets.Logger = Logger;
+
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("SpaceSpinach.spacespinachbundle")) {
                 var bundle = AssetBundle.LoadFromStream(stream);
-                /// var provider = new AssetBundleResourcesProvider(ModPrefix.TrimEnd(':'), bundle);
-                /// ResourcesAPI.AddProvider(provider);
 
                 SpaceSpinachPrefab = bundle.LoadAsset<GameObject>("Assets/Import/E-Can.prefab");
-                SpaceSpinachAsGreenTierItem(bundle);
-            }
+                SpaceSpinachIcon = bundle.LoadAsset<Sprite>("Assets/Import/CanIcon.png");
 
-            // SpaceSpinachAsGreenTierItem();
+                SpaceSpinachAsGreenTierItem();
+            }
 
         }
 
-        private static void SpaceSpinachAsGreenTierItem(AssetBundle bundle) {
+        private static void SpaceSpinachAsGreenTierItem() {
             // Define the item when it is created as a green tier item
-            var spaceSpinachItemDef = new ItemDef {
-                name = "SpaceSpinach", // Internal name, no spaces or special characters
-                tier = ItemTier.Tier2,
-                // pickupModelPath = PrefabPath,
-                // pickupIconPath = IconPath,
-                pickupIconSprite = bundle.LoadAsset<Sprite>("Assets/Import/CanIcon.png"),
-                pickupModelPrefab = bundle.LoadAsset<GameObject>("Assets/Import/E-Can.prefab"),
-                nameToken = "Space Spinach", // Stylised Name
-                pickupToken = "Grow in size. Gain small bonuses to health, damage, and speed!",
-                descriptionToken = "Grow in size. Gain small bonuses to health, damage, speed, and jump height!",
-                loreToken = "Said to be grown with a special bonemeal fertilizer, the exact nutritional contents remain a mystery as the back has been scratched off...",
-                tags = new[] {
+
+            SpaceSpinachItemDef = ScriptableObject.CreateInstance<ItemDef>();
+            var Spin = SpaceSpinachItemDef;
+            Spin.name = "SpaceSpinach"; // Internal name, no spaces or special characters
+            Spin.tier = ItemTier.Tier2;
+            Spin.pickupIconSprite = SpaceSpinachIcon;
+            Spin.pickupModelPrefab = SpaceSpinachPrefab;
+            Spin.nameToken = "Space Spinach"; // Stylised Name
+            Spin.pickupToken = "Grow in size. Gain small bonuses to health, damage, and speed!";
+            Spin.descriptionToken = "Grow in size. Gain small bonuses to health, damage, speed, and jump height!";
+            Spin.loreToken = "Said to be grown with a special bonemeal fertilizer, the exact nutritional contents remain a mystery as the back has been scratched off...";
+            Spin.tags = new[] {
                     ItemTag.Damage,
                     ItemTag.Utility
-                }
             };
 
             var itemDisplayRules = new ItemDisplayRule[1]; // keep this null if you don't want the item to show up on the survivor 3d model. You can also have multiple rules !
@@ -60,9 +56,13 @@ namespace SpaceSpinach {
             itemDisplayRules[0].localAngles = new Vector3(0f, 90f, 0f); // rotate the model, was 0, 180, 0 for bone
             itemDisplayRules[0].localPos = new Vector3(-0.25f, -0.1f, 0f); // position offset relative to the childName, here the survivor Chest, was -0.35, -0.1, 0 for bone
 
-            var spaceSpinach = new CustomItem(spaceSpinachItemDef, itemDisplayRules);
+            var spaceSpinach = new CustomItem(SpaceSpinachItemDef, itemDisplayRules);
 
-            ItemAPI.Add(spaceSpinach); // Add space spinach to the items, find index using ItemCatalog.FindItemIndex("SpaceSpinach");
+            if (!ItemAPI.Add(spaceSpinach)) { // Add space spinach to the items, find index using ItemCatalog.FindItemIndex("SpaceSpinach");
+                SpaceSpinachItemDef = null;
+                Logger.LogError("Unable to add Space Spinach");
+            }
+
         }
     }
 }

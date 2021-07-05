@@ -16,7 +16,7 @@ namespace SpaceSpinach {
 
         public void Awake() {
             Logger = base.Logger;
-            Assets.Init();
+            Assets.Init(Logger);
             Hooks.Init();
         }
     }
