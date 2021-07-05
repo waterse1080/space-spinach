@@ -13,8 +13,6 @@ namespace SpaceSpinach {
         internal static ItemDef SpaceSpinachItemDef;
         internal static ManualLogSource Logger;
 
-        private const string ModPrefix = "@SpaceSpinach:";
-
         internal static void Init(ManualLogSource Logger) {
             // Chat.AddMessage("Loaded SpaceSpinach!");
 
@@ -27,6 +25,8 @@ namespace SpaceSpinach {
                 SpaceSpinachIcon = bundle.LoadAsset<Sprite>("Assets/Import/CanIcon.png");
 
                 SpaceSpinachAsGreenTierItem();
+
+                AddLanguageTokens();
             }
 
         }
@@ -63,6 +63,13 @@ namespace SpaceSpinach {
                 Logger.LogError("Unable to add Space Spinach");
             }
 
+        }
+
+        private static void AddLanguageTokens() {
+            LanguageAPI.Add("SPINACH_NAME", "Space Spinach");
+            LanguageAPI.Add("SPINACH_PICKUP", "Grow in size. Gain small bonuses to health, damage, and speed!");
+            LanguageAPI.Add("SPINACH_DESC", "Grow in size. Gain small bonuses to health, damage, speed, and jump height!");
+            LanguageAPI.Add("SPINACH_LORE", "Said to be grown with a special bonemeal fertilizer, the exact nutritional contents remain a mystery as the back has been scratched off...");
         }
     }
 }
