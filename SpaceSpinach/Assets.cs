@@ -26,7 +26,7 @@ namespace SpaceSpinach {
 
                 SpaceSpinachAsGreenTierItem();
 
-                AddLanguageTokens();
+                // AddLanguageTokens();
             }
 
         }
@@ -65,11 +65,12 @@ namespace SpaceSpinach {
 
         }
 
-        private static void AddLanguageTokens() {
+        // Causes issues
+       /* private static void AddLanguageTokens() {
             LanguageAPI.Add("SPINACH_NAME", "Space Spinach");
             LanguageAPI.Add("SPINACH_PICKUP", "Grow in size. Gain small bonuses to health, damage, and speed!");
             LanguageAPI.Add("SPINACH_DESC", "Grow in size. Gain small bonuses to health, damage, speed, and jump height!");
             LanguageAPI.Add("SPINACH_LORE", "Said to be grown with a special bonemeal fertilizer, the exact nutritional contents remain a mystery as the back has been scratched off...");
-        }
+        }*/
     }
 }

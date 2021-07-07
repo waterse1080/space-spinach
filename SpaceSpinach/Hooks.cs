@@ -104,6 +104,14 @@ namespace SpaceSpinach {
                 // Call OnInventoryChanged
                 orig(self);
             };
+
+            // Makes sure that camera position is not messed up between games on the same character
+            // TODO: Get rid of erronious errors in the log on non-player deaths / stage clear
+            On.RoR2.CharacterBody.OnDestroy += (orig, self) => {
+                self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos = self.master.gameObject.GetComponent<SpinachStats>().defaultCameraPos;
+
+                orig(self);
+            };
         }
     }
 }
