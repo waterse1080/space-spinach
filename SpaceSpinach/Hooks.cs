@@ -20,17 +20,19 @@ namespace SpaceSpinach {
 
             // Recalculation of numerical stats
             On.RoR2.CharacterBody.RecalculateStats += (orig, self) => {
+
                 // Avoiding null reference calls for background birds and level hazards
                 // Artifact boss no longer dies on spawn
                 if (self.inventory != null && self.name != "ArtifactShellBody" && self.name!= "ArtifactShellBody(Clone)") {
 
+                    if (self.isPlayerControlled)
+                        Chat.AddMessage(self.name);
                     // Get SpaceSpinach # if the object has an inventory
                     // TODO: get item index once
                     ItemIndex spaceSpinachItemIndex = ItemCatalog.FindItemIndex("SpaceSpinach");
                     spinachCount = self.inventory.GetItemCount(spaceSpinachItemIndex);
 
                     // If master stats have not been set, update them. Should happen once per master.
-                    // TODO: Replace all of these GetComponent calls with an initial pointer decleration of SpinachStats
                     SpinachStats stats = self.master.gameObject.GetComponent<SpinachStats>();
                     if (stats.defaultBaseHealth == 0.0f) {
                         stats.setBaseHealth(self.baseMaxHealth);
@@ -48,23 +50,6 @@ namespace SpaceSpinach {
                     self.baseMoveSpeed = stats.defualtBaseSpeed + spinachCount;
                     // Update Jump Height
                     self.baseJumpPower = stats.defaultBaseJump + 2 * spinachCount;
-                    /**
-                    if (self.master.gameObject.GetComponent<SpinachStats>().defaultBaseHealth == 0.0f) {
-                        self.master.gameObject.GetComponent<SpinachStats>().setBaseHealth(self.baseMaxHealth);
-                        self.master.gameObject.GetComponent<SpinachStats>().setBaseDamage(self.baseDamage);
-                        self.master.gameObject.GetComponent<SpinachStats>().setBaseSpeed(self.baseMoveSpeed);
-                        self.master.gameObject.GetComponent<SpinachStats>().setBaseJump(self.baseJumpPower);
-                    }
-                    
-                    // Update HP
-                    self.baseMaxHealth = self.master.gameObject.GetComponent<SpinachStats>().defaultBaseHealth + 10 * spinachCount;
-                    // Update Damage
-                    self.baseDamage = self.master.gameObject.GetComponent<SpinachStats>().defaultBaseDamage + 5 * spinachCount;
-                    // Update Speed
-                    self.baseMoveSpeed = self.master.gameObject.GetComponent<SpinachStats>().defualtBaseSpeed + spinachCount;
-                    // Update Jump Height
-                    self.baseJumpPower = self.master.gameObject.GetComponent<SpinachStats>().defaultBaseJump + 2 * spinachCount;
-                    **/
                 }
 
                 // Call Recalculate stats
@@ -92,24 +77,29 @@ namespace SpaceSpinach {
                     float y = defaultBaseScale.y;
                     float z = defaultBaseScale.z;
 
-                    // +50% of base scale per held item
-                    self.modelLocator.modelTransform.localScale = new Vector3(x + spinachCount * x / 2, y + spinachCount * y / 2, z + spinachCount * z / 2);
+                    // Disable scaling for REX
+                    if (self.name != "TreebotBody(Clone)") {
 
-                    // Update camera location
-                    // TODO: return to default on exit via menu
-                    Vector3 basePos = self.master.gameObject.GetComponent<SpinachStats>().defaultCameraPos;
-                    Vector3 spinachPos = new Vector3(0.0f, spinachCount * 1.8f, -spinachCount * 1.8f);
-                    self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos = basePos + spinachPos;
+                        // +50% of base scale per held item
+                        self.modelLocator.modelTransform.localScale = new Vector3(x + spinachCount * x / 2, y + spinachCount * y / 2, z + spinachCount * z / 2);
+
+                        // Update camera location
+                        if (self.isPlayerControlled) {
+                            Vector3 basePos = self.master.gameObject.GetComponent<SpinachStats>().defaultCameraPos;
+                            Vector3 spinachPos = new Vector3(0.0f, spinachCount * 1.8f, -spinachCount * 1.8f);
+                            self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos = basePos + spinachPos;
+                        }
+                    } 
                 }
                 // Call OnInventoryChanged
                 orig(self);
             };
 
             // Makes sure that camera position is not messed up between games on the same character
-            // TODO: Get rid of erronious errors in the log on non-player deaths / stage clear
             On.RoR2.CharacterBody.OnDestroy += (orig, self) => {
-                self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos = self.master.gameObject.GetComponent<SpinachStats>().defaultCameraPos;
-
+                if (self.isPlayerControlled) {
+                    self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos = self.master.gameObject.GetComponent<SpinachStats>().defaultCameraPos;
+                }
                 orig(self);
             };
         }
