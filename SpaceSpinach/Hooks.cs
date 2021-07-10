@@ -6,34 +6,34 @@ using UnityEngine.Rendering;
 namespace SpaceSpinach {
     public class Hooks {
         internal static void Init() {
-            int spinachCount;
 
             // On character load
             On.RoR2.CharacterMaster.Awake += (orig, self) => {
+                
                 // Call Awake
                 orig(self);
+                
                 // Attach stat tracking component to each master object
                 self.gameObject.AddComponent<SpinachStats>();
-                /// self.gameObject.GetComponent<SpinachStats>().setItemIndex(ItemCatalog.FindItemIndex("SpaceSpinach"));
+                
+                // Set item index number
+                self.gameObject.GetComponent<SpinachStats>().setItemIndex(ItemCatalog.FindItemIndex("SpaceSpinach"));
             };
-            
 
-            // Recalculation of numerical stats
+            // On recalculation of numerical stats
             On.RoR2.CharacterBody.RecalculateStats += (orig, self) => {
 
                 // Avoiding null reference calls for background birds and level hazards
-                // Artifact boss no longer dies on spawn
+                // Disabled for artifact boss
                 if (self.inventory != null && self.name != "ArtifactShellBody" && self.name!= "ArtifactShellBody(Clone)") {
 
-                    if (self.isPlayerControlled)
-                        Chat.AddMessage(self.name);
-                    // Get SpaceSpinach # if the object has an inventory
-                    // TODO: get item index once
-                    ItemIndex spaceSpinachItemIndex = ItemCatalog.FindItemIndex("SpaceSpinach");
-                    spinachCount = self.inventory.GetItemCount(spaceSpinachItemIndex);
+                    // Get stat tracker
+                    SpinachStats stats = self.master.gameObject.GetComponent<SpinachStats>();
+
+                    // Get the ammount of the item currently on the Character Body
+                    int spinachCount = self.inventory.GetItemCount(stats.spaceSpinachItemIndex);
 
                     // If master stats have not been set, update them. Should happen once per master.
-                    SpinachStats stats = self.master.gameObject.GetComponent<SpinachStats>();
                     if (stats.defaultBaseHealth == 0.0f) {
                         stats.setBaseHealth(self.baseMaxHealth);
                         stats.setBaseDamage(self.baseDamage);
@@ -43,13 +43,17 @@ namespace SpaceSpinach {
                     }
 
                     // Update HP
-                    self.baseMaxHealth = stats.defaultBaseHealth + 10 * spinachCount;
+                    // Changed from 10 to 50% of base
+                    self.baseMaxHealth = stats.defaultBaseHealth + (stats.defaultBaseHealth / 2) * spinachCount;
                     // Update Damage
-                    self.baseDamage = stats.defaultBaseDamage + 5 * spinachCount;
+                    // Changed from 5 to 25% of base
+                    self.baseDamage = stats.defaultBaseDamage + (stats.defaultBaseDamage / 4) * spinachCount;
                     // Update Speed
-                    self.baseMoveSpeed = stats.defualtBaseSpeed + spinachCount;
+                    // Changed from 1 to 33% of base
+                    self.baseMoveSpeed = stats.defualtBaseSpeed + (stats.defualtBaseSpeed / 3) * spinachCount;
                     // Update Jump Height
-                    self.baseJumpPower = stats.defaultBaseJump + 2 * spinachCount;
+                    // Canged from 2 to 66% of base
+                    self.baseJumpPower = stats.defaultBaseJump + (stats.defaultBaseJump / 3) * 2 * spinachCount;
                 }
 
                 // Call Recalculate stats
@@ -58,21 +62,24 @@ namespace SpaceSpinach {
 
             // On entity load or inventory change of entity
             On.RoR2.CharacterBody.OnInventoryChanged += (orig, self) => {
+
                 // Disabled for artifact boss
                 if (self.name != "ArtifactShellBody" && self.name != "ArtifactShellBody(Clone)") {
+
+                    // Get stat tracker
+                    SpinachStats stats = self.master.gameObject.GetComponent<SpinachStats>();
+
                     // Get the ammount of the item currently on the Character Body
-                    ItemIndex spaceSpinachItemIndex = ItemCatalog.FindItemIndex("SpaceSpinach");
-                    spinachCount = self.inventory.GetItemCount(spaceSpinachItemIndex);
+                    int spinachCount = self.inventory.GetItemCount(stats.spaceSpinachItemIndex);
 
                     // If master stats have not been set, update them. Should happen once per master.
-                    // TODO: Replace GetComponent calls with single pointer decleration
-                    if (self.master.gameObject.GetComponent<SpinachStats>().defaultBaseScale == new Vector3(0.0f, 0.0f, 0.0f)) {
-                        self.master.gameObject.GetComponent<SpinachStats>().setBaseScale(self.modelLocator.modelTransform.localScale);
-                        self.master.gameObject.GetComponent<SpinachStats>().setCameraPos(self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos);
+                    if (stats.defaultBaseScale == new Vector3(0.0f, 0.0f, 0.0f)) {
+                        stats.setBaseScale(self.modelLocator.modelTransform.localScale);
+                        stats.setCameraPos(self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos);
                     }
 
                     // Update the size of the entity based off of the # of the item held
-                    Vector3 defaultBaseScale = self.master.gameObject.GetComponent<SpinachStats>().defaultBaseScale;
+                    Vector3 defaultBaseScale = stats.defaultBaseScale;
                     float x = defaultBaseScale.x;
                     float y = defaultBaseScale.y;
                     float z = defaultBaseScale.z;
@@ -80,26 +87,31 @@ namespace SpaceSpinach {
                     // Disable scaling for REX
                     if (self.name != "TreebotBody(Clone)") {
 
-                        // +50% of base scale per held item
-                        self.modelLocator.modelTransform.localScale = new Vector3(x + spinachCount * x / 2, y + spinachCount * y / 2, z + spinachCount * z / 2);
+                        // Changed from 50% to 250% of base scale per held item
+                        self.modelLocator.modelTransform.localScale = new Vector3(x + spinachCount * x * 2.5f, y + spinachCount * y * 2.5f, z + spinachCount * z * 2.5f);
 
                         // Update camera location
                         if (self.isPlayerControlled) {
-                            Vector3 basePos = self.master.gameObject.GetComponent<SpinachStats>().defaultCameraPos;
-                            Vector3 spinachPos = new Vector3(0.0f, spinachCount * 1.8f, -spinachCount * 1.8f);
+                            Vector3 basePos = stats.defaultCameraPos;
+                            Vector3 spinachPos = new Vector3(0.0f, spinachCount * 1.8f * 5, -spinachCount * 1.8f * 5);
                             self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos = basePos + spinachPos;
                         }
                     } 
                 }
+
                 // Call OnInventoryChanged
                 orig(self);
             };
 
-            // Makes sure that camera position is not messed up between games on the same character
+            // On body destruction, including exiting to menus
             On.RoR2.CharacterBody.OnDestroy += (orig, self) => {
+
+                // Makes sure that camera position is not messed up between games on the same character
                 if (self.isPlayerControlled) {
                     self.GetComponent<CameraTargetParams>().cameraParams.standardLocalCameraPos = self.master.gameObject.GetComponent<SpinachStats>().defaultCameraPos;
                 }
+
+                // Call OnDestroy
                 orig(self);
             };
         }
